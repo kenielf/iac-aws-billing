@@ -1,3 +1,3 @@
 output "budgets" {
-  value = aws_budgets_budget.budget
+  value = aws_budgets_budget.budgets
 }
