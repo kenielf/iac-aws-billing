@@ -3,6 +3,11 @@ variable "project" {
   nullable = false
 }
 
+variable "manage_cost_tags" {
+  type = bool
+  default = false
+}
+
 variable "budgets" {
   type = map(object({
     amount = number
