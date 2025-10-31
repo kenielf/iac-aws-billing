@@ -33,11 +33,7 @@ resource "aws_budgets_budget" "budgets" {
   }
 
   dynamic "notification" {
-    for_each = toset([
-      { type = "ACTUAL", threshold = 85 },
-      { type = "ACTUAL", threshold = 100 },
-      { type = "FORECASTED", threshold = 100 },
-    ])
+    for_each = toset(var.notification_threshold_defaults)
     content {
       comparison_operator = "GREATER_THAN"
       threshold = notification.value.threshold

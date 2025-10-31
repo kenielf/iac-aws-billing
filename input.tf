@@ -38,3 +38,13 @@ variable "cost_time_default" {
   default = "MONTHLY"
   nullable = false
 }
+
+variable "notification_threshold_defaults" {
+  type = list(object({ type = string, threshold = number }))
+  default = [
+    { type = "ACTUAL", threshold = 85 },
+    { type = "ACTUAL", threshold = 100 },
+    { type = "FORECASTED", threshold = 100 },
+  ]
+  nullable = false
+}
