@@ -7,7 +7,7 @@ locals {
 }
 
 resource "aws_ce_cost_allocation_tag" "budget_tags" {
-  for_each = var.manage_cost_tags? local.budget_tag_filter : {}
+  for_each = var.manage_cost_tags? try(local, "budget_tag_filter", {}) : {}
 
   tag_key = each.value
   status  = "Active"
